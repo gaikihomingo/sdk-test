@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+    
         findViewById<Button>(R.id.btnSelectFile).setOnClickListener {
             startActivityForResult(
                 Intent(
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btnUpload).setOnClickListener {
-            HomingosUploader.getInstance(this).upload(uri!!, "5e6eb94e-6ac6-4f61-84af-c764c4c8d27e")
+            HomingosUploader.getInstance(this).upload(uri!!, "87b26d4f-9306-449e-a4a6-bb7d5e4007d9")
         }
     }
 
