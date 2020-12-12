@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btnUpload).setOnClickListener {
-            HomingosUploader.getInstance(this).upload(uri!!, "87b26d4f-9306-449e-a4a6-bb7d5e4007d9")
+            HomingosUploader.getInstance(this).upload(uri!!, "87b26d4f-9306-449e-a4a6-bb7d5e4007d9", true)
         }
     }
 
