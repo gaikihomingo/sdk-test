@@ -6,9 +6,11 @@ import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.homingos.sdk.network.UploadProgressListener
+import com.homingos.sdk.network.UrlListener
 import com.homingos.sdk.upload.HomingosUploader
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), UploadProgressListener, UrlListener {
 
     var uri: Uri? = null
 
@@ -26,7 +28,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btnUpload).setOnClickListener {
-            HomingosUploader.getInstance(this).upload(uri!!, "87b26d4f-9306-449e-a4a6-bb7d5e4007d9", true)
+            HomingosUploader.getInstance(this)
+                .upload(uri!!, "87b26d4f-9306-449e-a4a6-bb7d5e4007d9", true, this, this)
         }
     }
 
@@ -34,6 +37,14 @@ class MainActivity : AppCompatActivity() {
         if (resultCode == Activity.RESULT_OK && requestCode == 1234) {
             uri = data?.data
         } else super.onActivityResult(requestCode, resultCode, data)
+    }
+
+    override fun onProgressUpdate(percentage: Int) {
+        println(">>>>> progress in main $percentage")
+    }
+
+    override fun onUrlChanged(url: String) {
+        println(">>>>> url called is $url")
     }
 
 }

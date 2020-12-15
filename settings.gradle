@@ -1,2 +1,3 @@
-include ':app'
+include ':app', ':homingosSdk'
+project(':homingosSdk').projectDir = new File(settingsDir, '../Homingos-Upload-SDK/app')
 rootProject.name = "SdkTest"
